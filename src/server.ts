@@ -1,16 +1,18 @@
 import mongoose from 'mongoose';
-import config from './app/config';
 import app from './app';
+//import config from './app/config';
 
+const PORT = 5000;
 async function main() {
   try {
-    await mongoose.connect(config.database_url as string);
-    app.listen(config.port, () => {
-      console.log(`Example app listening on port ${config.port}`);
+    await mongoose.connect(
+      'mongodb+srv://admin:afsar12133@cluster0.lalj4.mongodb.net/first-project?retryWrites=true&w=majority&appName=Cluster0',
+    );
+    app.listen(PORT, () => {
+      console.log(`Example app listening on port ${PORT}`);
     });
   } catch (error) {
-    console.log(error);
+    console.log('Afsar :', error);
   }
 }
-
 main();
